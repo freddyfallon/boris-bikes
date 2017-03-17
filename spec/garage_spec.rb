@@ -10,4 +10,11 @@ describe Garage do
     expect(subject.garage_bikes).to eq van.van_bikes
   end
 
+  it 'delivers bikes to the van' do
+    van = Van.new
+    bike = Bike.new
+    subject.garage_bikes.push(bike)
+    expect(subject.return_bike(van)).to eq [bike]
+  end
+
 end

@@ -1,7 +1,7 @@
 require 'van'
 
 describe Van do
-  it 'has removes broken bikes from docking station' do
+  it 'removes broken bikes from docking station' do
     bike = Bike.new
     station = DockingStation.new
     bike.break
