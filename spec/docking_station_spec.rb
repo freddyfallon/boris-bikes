@@ -59,15 +59,5 @@ describe DockingStation do
   it "Checks default maximum capacity" do
     expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
   end
-
-  describe '#remove_bikes' do
-      it 'removes broken bikes from docking station' do
-        broken_bike = double(:bike, working?: false)
-        working_bike = double(:bike, working?: true)
-        2.times { subject.dock(broken_bike) }
-        2.times { subject.dock(working_bike) }
-        expect(subject.remove_bikes).not_to include(broken_bike)
-      end
-  end
-
+  
 end
