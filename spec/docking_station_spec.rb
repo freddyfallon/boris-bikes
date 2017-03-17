@@ -59,5 +59,6 @@ describe DockingStation do
   it "Checks default maximum capacity" do
     expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
   end
-  
+
+
 end

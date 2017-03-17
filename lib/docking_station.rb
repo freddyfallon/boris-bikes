@@ -1,4 +1,5 @@
 require_relative 'bike'
+require_relative 'van'
 
 
 class DockingStation
@@ -14,31 +15,32 @@ class DockingStation
 
   def release_bike
     fail "No Bikes" if empty?
-    fail "Bike Broken" unless @bikes.last.working?
-    @bikes.pop
+    fail "Bike Broken" unless bikes.last.working?
+    bikes.pop
   end
 
   def dock(bike)
     fail "Dock Full" if full?
-    @bikes << bike
+    bikes << bike
   end
 
   def remove_bikes
-    van_bikes = @bikes.select {|bike| !bike.working?}
-    @bikes.select! {|bike| bike.working?}
+    bikes.map do |bike|
+      if bike.working? == false
+        bikes.delete(bike)
+      else bike
+      end
+    end
   end
 
   private
 
   def empty?
-    @bikes.empty?
+    bikes.empty?
   end
 
   def full?
-    @bikes.count >= @capacity
+    bikes.count >= @capacity
   end
-
-
-
 
 end
